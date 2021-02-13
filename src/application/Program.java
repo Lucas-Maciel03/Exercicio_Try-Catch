@@ -11,6 +11,7 @@ public class Program {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
 		try {
 			System.out.println("Enter Account Data");
 			System.out.print("Number: ");
@@ -22,23 +23,21 @@ public class Program {
 			double balance = sc.nextDouble();
 			System.out.print("Withdraw Limit: ");
 			double limit = sc.nextDouble();
-			
+
 			Account acc = new Account(number, name, balance, limit);
-			
+
 			System.out.println();
 			System.out.print("Enter amount for withdraw: ");
 			double amount = sc.nextDouble();
 			acc.withdraw(amount);
 			System.out.println(acc.toString());
-			
-		}
-		catch(DomainException e) {	
+
+		} catch (DomainException e) {
 			System.out.println("Withdraw error: " + e.getMessage());
-		}
-		catch (RuntimeException e) {
+		} catch (RuntimeException e) {
 			System.out.println("Unexpected error");
 		}
-		
+
 		sc.close();
 	}
 
